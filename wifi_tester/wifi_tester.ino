@@ -14,8 +14,10 @@
  *   - Adafruit SSD1306
  *   - Adafruit GFX Library
  *
- * Arduino core: esp32 by Espressif Systems v3.x
- * Board target: ESP32C5 Dev Module
+ * Arduino core: esp32 by Espressif Systems v3.3.6 or newer (IMPORTANT: earlier
+ *               3.x releases do not support ESP32-C5; v3.3.6+ includes PSRAM/
+ *               sleep bug fixes for C5 silicon — use v3.3.7 if available)
+ * Board target: ESP32C5 Dev Module (or ESP32-C5-DevKitC-1)
  */
 
 #include <WiFi.h>
@@ -29,8 +31,9 @@
 #define NEOPIXEL_COUNT   1
 #define NEOPIXEL_BRIGHTNESS 60   // 0-255
 
-#define OLED_SDA        6
-#define OLED_SCL        7
+#define OLED_SDA        6        // wire OLED SDA to this GPIO pin
+#define OLED_SCL        7        // wire OLED SCL to this GPIO pin
+                                 // (change these to match whatever pins you connect)
 #define OLED_ADDR       0x3C     // try 0x3D if display stays blank
 #define OLED_WIDTH      128
 #define OLED_HEIGHT     64
